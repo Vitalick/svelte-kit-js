@@ -1,6 +1,8 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
 	import '../app.css';
+	// eslint-disable-next-line no-unused-vars
+	import TailwindCSS from '$lib/TailwindCSS.svelte';
 </script>
 
 <Header />

@@ -1,20 +1,18 @@
-const colorReplace = require('./src/functions/colorReplace.cjs')
+const colorReplace = require('./src/functions/colorReplace.cjs');
 
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 
-const production = !!process.env.PROD
-
-const primary = colorReplace('#ff3e00')
+const primary = colorReplace('#ff3e00');
 
 module.exports = {
   future: {
     purgeLayersByDefault: true,
-    removeDeprecatedGapUtilities: true,
+    removeDeprecatedGapUtilities: true
   },
   purge: {
     content: ['./src/**/*.svelte'],
-    enabled: true, // disable purge in dev,
-    safelist: [/^text-/, /^bg-/, /^border-/],
+    enabled: process.env.NODE_ENV !== 'development', // disable purge in dev,
+    safelist: [/^text-/, /^bg-/, /^border-/]
   },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
@@ -26,7 +24,7 @@ module.exports = {
       red: colors.rose,
       pink: colors.fuchsia,
       dark: colors.blueGray,
-      light: colors.white,
+      light: colors.white
     },
     fontFamily: {
       sans: [
@@ -39,22 +37,22 @@ module.exports = {
         'Cantarell',
         'Open Sans',
         'Helvetica Neue',
-        'sans-serif',
+        'sans-serif'
       ],
-      serif: ['Merriweather', 'serif'],
+      serif: ['Merriweather', 'serif']
     },
     extend: {
       spacing: {
         128: '32rem',
-        144: '36rem',
+        144: '36rem'
       },
       borderRadius: {
-        '4xl': '2rem',
-      },
-    },
+        '4xl': '2rem'
+      }
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
-}
+  plugins: []
+};
