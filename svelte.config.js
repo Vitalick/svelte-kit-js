@@ -1,10 +1,10 @@
 import {scss, sass, postcss, globalStyle} from 'svelte-preprocess'
 // import node from '@sveltejs/adapter-node';
 import adapter from '@sveltejs/adapter-static';
-
+import svelteSVG from 'vite-plugin-svelte-svg'
 
 // import legacy from '@vitejs/plugin-legacy'
-// import {defineConfig} from "vite";
+import {defineConfig} from "vite";
 
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -22,16 +22,19 @@ const config = {
             assets: 'build',
             fallback: null
         }),
-        // vite: defineConfig({
-        //     // build: {
-        //     //     polyfillDynamicImport: true
-        //     // },
-        //     // plugins: [
-        //     //     legacy({
-        //     //         additionalLegacyPolyfills: ['vite/dynamic-import-polyfill']
-        //     //     }),
-        //     // ]
-        // })
+        vite: defineConfig({
+            // build: {
+            //     polyfillDynamicImport: true
+            // },
+            plugins: [
+                // legacy({
+                //     additionalLegacyPolyfills: ['vite/dynamic-import-polyfill']
+                // }),
+                svelteSVG({
+                    svgoConfig: {}, // See https://github.com/svg/svgo#configuration
+                })
+            ]
+        })
 
     },
     preprocess: [scss(), sass(), postcss(), globalStyle()]

@@ -23,7 +23,7 @@
 	</h1>
 
 	<h2>
-		try editing <strong class='text-red-400'>src/routes/index.svelte</strong>
+		try editing <strong>src/routes/index.svelte</strong>
 	</h2>
 
 	<Counter />
